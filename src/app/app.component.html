@@ -1,0 +1,230 @@
+<div class="container">
+
+  <h1 class="text-center">Income Expense Tracker</h1>
+ 
+  <br />
+ 
+  <div class="row mt-4">
+ 
+   <div class="row">
+ 
+    <h4>
+ 
+     <strong>Total Income:</strong>
+ 
+     <span class="h" [style.color]="'blue'">Rs {{ totalIncome }}</span>
+ 
+    </h4>
+ 
+    <h4 class="bal">
+ 
+     <strong>Balance/Saved:</strong>
+ 
+     <span class="h" [style.color]="'green'">Rs {{ balance }}</span>
+ 
+    </h4>
+ 
+   </div>
+ 
+  </div>
+ 
+  <br />
+ 
+  <div class="form-row">
+ 
+   <div class="form-group col-md-3">
+ 
+    <label for="">Category:</label>
+ 
+    <select class="form-control" [(ngModel)]="currentType">
+ 
+     <option value="" disabled selected>Select</option>
+ 
+     <option value="income">Income</option>
+ 
+     <option value="expense">Expense</option>
+ 
+    </select>
+ 
+   </div>
+ 
+   <div class="form-group col-md-3">
+ 
+    <label for="">Name:</label>
+ 
+    <input class="form-control" [(ngModel)]="name" placeholder="Enter Name" appInputRestrict="alphabet"/>
+ 
+   </div>
+ 
+   <div class="form-group col-md-3">
+ 
+    <label for="">Amount:</label>
+ 
+    <input
+    appInputRestrict="number"
+     class="form-control"
+ 
+     [(ngModel)]="amount"
+ 
+     placeholder="Enter Amount"
+     appNumberOnly
+    />
+ 
+   </div>
+ 
+   <div class="form-group col-md-3">
+ 
+    <label for="">Date:</label>
+ 
+    <input
+ 
+     class="form-control"
+ 
+     [(ngModel)]="date"
+ 
+     placeholder="Date"
+     
+     min="2024-01-01"
+ 
+     type="date"
+ 
+    />
+ 
+   </div>
+ 
+   <div class="form-row">
+ 
+    <div class="form-group col-md-2">
+ 
+     <button class="btn btn-success add" (click)="addTransaction()">
+ 
+      Add
+ 
+     </button>
+ 
+    </div>
+ 
+   </div>
+ 
+  </div>
+ 
+ </div>
+ 
+ <br />
+ 
+ <div class="row mt-4">
+ 
+  <div class="col">
+ 
+   <label for="">Filter by month:</label>
+ 
+   <select
+ 
+    class="form-select h"
+ 
+    [(ngModel)]="filterMonth"
+ 
+    (change)="filterTransactionsByMonth(filterMonth)"
+ 
+   >
+ 
+    <option value="">All records</option>
+ 
+    <option value="0">January</option>
+ 
+    <option value="1">February</option>
+ 
+    <option value="2">March</option>
+ 
+    <option value="3">April</option>
+ 
+    <option value="4">May</option>
+ 
+    <option value="5">June</option>
+ 
+    <option value="6">July</option>
+ 
+    <option value="7">August</option>
+ 
+    <option value="8">September</option>
+ 
+    <option value="9">October</option>
+ 
+    <option value="10">November</option>
+ 
+    <option value="11">December</option>
+ 
+   </select>
+ 
+  </div>
+ 
+ </div>
+ 
+ <br />
+ 
+ <div class="row mt-4">
+ 
+  <div class="col">
+ 
+   <table class="table table-bordered">
+ 
+    <thead>
+ 
+     <tr>
+ 
+      <th>ID</th>
+ 
+      <th>Name</th>
+ 
+      <th>Category</th>
+ 
+      <th>Amount</th>
+ 
+      <th>Date</th>
+ 
+      <th>Action</th>
+ 
+     </tr>
+ 
+    </thead>
+ 
+    <tbody>
+ 
+     <tr *ngFor="let transaction of filteredTransactions">
+ 
+      <td>{{ transaction.id }}</td>
+ 
+      <td>{{ transaction.name }}</td>
+ 
+      <td>{{ transaction.type }}</td>
+ 
+      <td [appHighlight]="transaction.type">{{ transaction.amount }}</td>
+ 
+      <td>{{ transaction.date | date }}</td>
+ 
+      <td>
+ 
+       <button
+ 
+        class="btn btn-danger"
+ 
+        (click)="deleteTransaction(transaction.id)"
+ 
+       >
+ 
+        Delete
+ 
+       </button>
+ 
+      </td>
+ 
+     </tr>
+ 
+    </tbody>
+ 
+   </table>
+ 
+  </div>
+ 
+ </div>
+<router-outlet></router-outlet>

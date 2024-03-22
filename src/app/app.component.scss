@@ -1,0 +1,133 @@
+.container {
+
+  max-width: 630px;
+ 
+  margin: auto;
+ 
+ }
+ 
+ .row {
+ 
+  display: flex;
+ 
+  justify-content: space-between;
+ 
+  align-items: center;
+ 
+ }
+ 
+ .form-control {
+ 
+  margin-bottom: 1rem;
+ 
+ }
+ 
+ .shadow-lg {
+ 
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important; // White shadow
+ 
+ }
+ 
+ In this c .btn {
+ 
+  width: 100%;
+ 
+ }
+ 
+ .add {
+ 
+  margin-left: 250px;
+ 
+ }
+ 
+ .bal {
+ 
+  margin-left: 40px;
+ 
+ }
+ 
+ .amt {
+ 
+  margin: 0 10px 0 10px;
+ 
+ }
+ 
+ .table-bordered {
+ 
+  border: 1px solid #86c3ff;
+ 
+ }
+ 
+ .table-bordered th,
+ 
+ .table-bordered td {
+ 
+  border: 1px solid #86c3ff;
+ 
+ }
+ 
+ .h {
+ 
+  margin-left: 8px;
+ 
+ }
+ 
+ .cat {
+ 
+  margin-bottom: 11px;
+ 
+ }
+ 
+ // .large-dropdown {
+ 
+ // width: 70px;
+ 
+ // height: 29px;
+ 
+ // }
+ 
+ @media (max-width: 600px) {
+ 
+  .row {
+ 
+   flex-direction: column;
+ 
+  }
+ 
+  .add {
+ 
+   margin: 0px;
+ 
+  }
+ 
+  .bal {
+ 
+   margin: 0px;
+ 
+  }
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
